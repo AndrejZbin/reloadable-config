@@ -1,0 +1,25 @@
+{
+  "name": "@gfxpulse/reloadable-config",
+  "version": "1.0.0",
+  "description": "Better config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrejZbin/reloadable-config.git"
+  },
+  "keywords": [
+    "npm",
+    "nodejs",
+    "javascript",
+    "config"
+  ],
+  "author": "Andrej Zbín",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrejZbin/reloadable-config/issues"
+  },
+  "homepage": "https://github.com/AndrejZbin/reloadable-config#readme"
+}
