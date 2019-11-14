@@ -3,8 +3,8 @@
   "version": "1.0.2",
   "description": "Better config",
   "main": "index.js",
-    "devDependencies": {
-    "standard": "*"
+  "devDependencies": {
+    "standard": "^14.3.1"
   },
   "scripts": {
     "test": "standard"
@@ -24,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/AndrejZbin/reloadable-config/issues"
   },
-  "homepage": "https://github.com/AndrejZbin/reloadable-config#readme"
+  "homepage": "https://github.com/AndrejZbin/reloadable-config#readme",
+  "dependencies": {}
 }
