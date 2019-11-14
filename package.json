@@ -1,6 +1,6 @@
 {
   "name": "@gfxpulse/reloadable-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Better config",
   "main": "index.js",
   "scripts": {
