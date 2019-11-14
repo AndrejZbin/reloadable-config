@@ -21,7 +21,7 @@ npm install @gfxpulse/reloadable-config
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
 | `autoreload` | `int` | `0` | How often (in ms) is reload automatically called |
-| `watchfile` | `int` | `null` | Automatically call reload on file change |
+| `watchfile` | `boolean` | `true` | Automatically call reload on file change |
 | `file` | `string` | `null` | Full path to config file |
 | `defaults` | `Object` | `{}` | Default values if not present in file |
 | `on_reload_begin` | `Function` | `() => {}` | Function called before reload starts |
