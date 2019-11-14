@@ -46,7 +46,7 @@ class Config {
         }
         if (config.hasOwnProperty('file') || config.hasOwnProperty('watchfile')) {
             if (this._watch != null) {
-                this._watch.stop();
+                this._watch.close();
                 this._watch = null;
             }
             if (this._config.watchfile) {
@@ -61,7 +61,7 @@ class Config {
         return this;
     }
     stop() {
-        if (this._watch != null) this._watch.stop();
+        if (this._watch != null) this._watch.close();
         if (this._autoreload != null) clearInterval(this._autoreload);
     }
     reload() {
