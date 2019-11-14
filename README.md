@@ -34,7 +34,7 @@ npm install @gfxpulse/reloadable-config
 | `id` | `string` | `random` | Identifier used for unsubscribing |
 | `init_call` | `bool` | `true` | Call handler instantly with old_conf = null |
 | `watch` | `'*'` or `Array`  | `'*'` | Handler called only when property or properties in array are changed, use '*' for any |
-| `handler` | `Function` | `(new_config, old_config) => {}` | Function called when change is detected |
+| `handler` | `Function` | `(newConfig, oldConfig) => {}` | Function called when change is detected |
 
 # Example
 Code:

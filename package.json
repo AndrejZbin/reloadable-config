@@ -3,8 +3,11 @@
   "version": "1.0.2",
   "description": "Better config",
   "main": "index.js",
+    "devDependencies": {
+    "standard": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "repository": {
     "type": "git",
