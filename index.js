@@ -1,5 +1,6 @@
 'use strict';
 
+const fs = require('fs');
 const crypto = require('crypto');
 
 class Config {
@@ -8,6 +9,7 @@ class Config {
         this._config = {
             file: undefined,
             autoreload: 0,
+            watchfile: true,
             on_reload_begin: () => {},
             on_reload_end: () => {},
             defaults: {},
@@ -22,6 +24,8 @@ class Config {
         this._initialized = false;
         // interval
         this._autoreload = null;
+        // watch
+        this._watch = null;
     }
     setup(config, reload=true) {
         // override default settings with specified settings
@@ -34,11 +38,31 @@ class Config {
         Object.assign(this._staticConfig, Object.assign(defaults_static, this._staticConfig));
         Object.assign(this._dynamicConfig, Object.assign(defaults_dynamic, this._dynamicConfig));
         if (config.hasOwnProperty('autoreload')) {
-            if (this._autoreload != null) clearInterval(this._autoreload);
+            if (this._autoreload != null) {
+                clearInterval(this._autoreload);
+                this._autoreload = false;
+            }
             if (config.autoreload) this._autoreload = setInterval(() => this.reload(), config.autoreload);
+        }
+        if (config.hasOwnProperty('file') || config.hasOwnProperty('watchfile')) {
+            if (this._watch != null) {
+                this._watch.stop();
+                this._watch = null;
+            }
+            if (this._config.watchfile) {
+                this._watch = fs.watch(this._config.file, (eventType, filename) => {
+                    if (eventType === 'change') {
+                        this.reload();
+                    }
+                });
+            }
         }
         if (reload) this.reload();
         return this;
+    }
+    stop() {
+        if (this._watch != null) this._watch.stop();
+        if (this._autoreload != null) clearInterval(this._autoreload);
     }
     reload() {
         this._config.on_reload_begin();
@@ -53,7 +77,7 @@ class Config {
         }
         const old_config = Object.assign({}, this._dynamicConfig);
         delete require.cache[this._config.file];
-        let new_config = require(this._config.file);
+        let new_config = Object.assign(Object.assign({}, this._config.defaults), require(this._config.file));
 
         for (const prop of Object.keys(this._dynamicConfig)) {
             delete this._dynamicConfig[prop];
