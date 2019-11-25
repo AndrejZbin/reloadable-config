@@ -1,29 +1,35 @@
 {
-  "name": "@gfxpulse/reloadable-config",
-  "version": "1.0.2",
-  "description": "Better config",
-  "main": "index.js",
-  "devDependencies": {
-    "standard": "^14.3.1"
-  },
-  "scripts": {
-    "test": "standard"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AndrejZbin/reloadable-config.git"
-  },
-  "keywords": [
-    "npm",
-    "nodejs",
-    "javascript",
-    "config"
-  ],
-  "author": "Andrej Zbín",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AndrejZbin/reloadable-config/issues"
-  },
-  "homepage": "https://github.com/AndrejZbin/reloadable-config#readme",
-  "dependencies": {}
+	"name": "@gfxpulse/reloadable-config",
+	"version": "1.0.2",
+	"description": "Better config",
+	"main": "index.js",
+	"devDependencies": {
+		"standardx": "^5.0.0"
+	},
+	"scripts": {
+		"test": "standardx"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AndrejZbin/reloadable-config.git"
+	},
+	"keywords": [
+		"npm",
+		"nodejs",
+		"javascript",
+		"config"
+	],
+	"author": "Andrej Zbín",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AndrejZbin/reloadable-config/issues"
+	},
+	"homepage": "https://github.com/AndrejZbin/reloadable-config#readme",
+	"eslintConfig": {
+		"rules": {
+			"semi": 0,
+			"no-prototype-builtins": 0,
+		  	"indent": ["error", 4]
+		}
+	}
 }
